@@ -1,6 +1,6 @@
 # IWIS2026 EIT simulations
 
-This repository reproduces the data presented at **<CONFERENCE_NAME>** and published in **<ARTICLE_TITLE_AND_CITATION_OR_DOI>**.
+This repository reproduces the data presented at **19th International Workshop on Impedance Spectroscopy, September 22 - September 25, 2026** and published in **Joint Temporal and Frequency Correlation for Multi-Frequency Electrical Impedance Tomography**.
 
 ## Installation
 
@@ -15,7 +15,8 @@ git clone --branch "<EITLAB_TAG>" --depth 1 "<EITLAB_REPOSITORY_URL>" ../eitlab-
 python -m pip install -r requirements.txt
 ```
 
-The requirements file installs that EITLab checkout with its simulation and plotting dependencies. No separate pip installation command or study `pyproject.toml` is needed. If you already have EITLab checked out at the specified tag, use its folder path in `requirements.txt` and skip cloning.
+The requirements file installs that EITLab checkout with its simulation and plotting dependencies. No separate pip installation command or study `pyproject.toml` is needed.
+If you already have EITLab checked out at the specified tag, use its folder path in `requirements.txt` and skip cloning.
 
 In each new terminal, activate the environment and open the `iwis2026` folder before running the scripts.
 
@@ -29,9 +30,11 @@ python study/02_run_monte_carlo.py
 python study/03_make_figures_tables.py
 ```
 
-The default `MODE='demo'` uses coarse meshes, distance 0.4, noise level 0.1, and three Monte Carlo trials. Settings are near the beginning of each script.
+The default `MODE='demo'` uses coarse meshes, distance 0.4, noise level 0.1, and three Monte Carlo trials.
+Settings are near the beginning of each script.
 
-These are ordinary Python scripts. The `# %%` separators are retained for running cells in order in Spyder or another compatible editor. Each script starts independently and reads the files produced by the preceding script. Summary tables are printed to the console and saved to files.
+Each script starts independently and reads the files produced by the preceding script.
+Summary tables are printed to the console and saved to files.
 
 The scientific sequence is visible in these three scripts:
 
@@ -39,7 +42,7 @@ The scientific sequence is visible in these three scripts:
 - **02:** EITLab inverse setup, explicit noise generation, and `reconstruct_trial()`. This single local function shows Single frame selection, voltage unmixing, inversion, image construction and correlation calculation.
 - **03:** saved-result summaries and `plot_reconstruction_images()`. This single local function calls EITLab's `plot_image()` and shows the panel arrangement, normalization, geometry outlines and shared colorbar.
 
-Helpers in `study/iwis_eit/` handle file loading/saving, metadata, inverse-operator caching, trial storage, pixel lookup and common figure formatting. No reconstruction workflow is hidden inside the cache or storage classes.
+Helpers in `study/iwis_eit/` handle file loading/saving, metadata, inverse-operator caching, trial storage, pixel lookup and common figure formatting.
 
 
 ## Full experiment
@@ -68,7 +71,9 @@ Data is saved in `results/`. Script 01 saves its diagnostic figures alongside it
 - Script 01: circle schematic, three conductivity subplots with matching circle colors, and a separate voltage figure.
 - Script 03: Single/Unmixed correlation boxplots, one combined boxplot per distance, representative EIT images, and CSV, Markdown, and JSON tables.
 
-Each full-mode combined boxplot has six boxes per circle: one Single/Unmixed pair per noise level. Figures are exported as SVG and PNG. EIT images use viridis; other plots use standard Matplotlib colors. EIT panels are normalized independently, so compare spatial patterns rather than amplitudes.
+Each full-mode combined boxplot has six boxes per circle: one Single/Unmixed pair per noise level.
+Figures are exported as SVG and PNG.
+EIT panels are normalized independently, so compare spatial patterns rather than amplitudes.
 
 Reconstruction panels use EITLab's `eitlab.plotting.plot_image()` to display the saved pixel arrays. SVG files embed these pixel images while retaining editable text and vector outlines.
 
@@ -87,7 +92,11 @@ This uses saved data without repeating simulations or reconstructions. Scripts 0
 - `SAVE_FIGURES=True`, `SHOW_FIGURES=False`: save plot files without opening plot windows.
 - Both `False`: neither save nor display plots.
 
-These flags control plots only. Script 01 still saves simulation data; script 03 still saves summary tables and export metadata. Disabling plot saving leaves existing plot files untouched. Repeating a configuration with saving enabled overwrites its corresponding outputs.
+These flags control plots only.
+Script 01 still saves simulation data;
+script 03 still saves summary tables and export metadata.
+Disabling plot saving leaves existing plot files untouched.
+Repeating a configuration with saving enabled overwrites its corresponding outputs.
 
 
 ## Figure configuration
@@ -103,14 +112,17 @@ Edit `figure_config.json` to set figure sizes, font sizes and PNG resolution. Al
 - `reconstruction.compact`: `true` uses shared headers and compact labels, and omits the condition heading and explanatory footer. Use this for publication columns. Set it to `false` for the detailed diagnostic presentation. Reconstruction images have no coordinate axis labels or tick numbers in either mode; the shared colorbar retains its scale.
 - `reconstruction.panel_gap_cm`: space reserved between panels in compact mode. The default is `0.15` cm; smaller values leave more room for the images.
 
-The compact reconstruction defaults are **8.5 x 14 cm** for a single-column vertical figure and **18.5 x 13 cm** for a double-column horizontal figure. Width and height both matter: square image panels need enough height for all rows. Increase the height if you want larger panels while keeping the same column width. Font sizes remain in points; the figure is exported at the configured size without cropping the canvas.
+The compact reconstruction defaults are **8.5 x 14 cm** for a single-column vertical figure and **18.5 x 13 cm** for a double-column horizontal figure.
+Width and height both matter: square image panels need enough height for all rows.
+Increase the height if you want larger panels while keeping the same column width.
+Font sizes remain in points; the figure is exported at the configured size without cropping the canvas.
 
 For example, to use different vertical scales for the two distances:
 
 ```json
 "boxplot_y_limits": {
-  "0.4": [0.7, 1.0],
-  "0.6": [0.2, 1.0]
+  "0.4": [0.2, 0.8],
+  "0.6": [0.4, 0.9]
 }
 ```
 
@@ -122,7 +134,7 @@ For example, to put Single and Unmixed side by side for each circle:
   "compact": true,
   "panel_gap_cm": 0.15,
   "horizontal_size": [18.5, 13],
-  "vertical_size": [8.5, 14]
+  "vertical_size": [8.5, 12]
 }
 ```
 
