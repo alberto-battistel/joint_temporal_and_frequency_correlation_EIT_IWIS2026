@@ -39,8 +39,10 @@ Summary tables are printed to the console and saved to files.
 The scientific sequence is visible in these three scripts:
 
 - **01:** geometry and meshing, EITLab forward models and Jacobian, conductivity laws, the six-row unmixing basis, Tikhonov inversion, parameter-to-image conversion, and geometry/conductivity/voltage plotting.
-- **02:** EITLab inverse setup, explicit noise generation, and `reconstruct_trial()`. This single local function shows Single frame selection, voltage unmixing, inversion, image construction and correlation calculation.
-- **03:** saved-result summaries and `plot_reconstruction_images()`. This single local function calls EITLab's `plot_image()` and shows the panel arrangement, normalization, geometry outlines and shared colorbar.
+- **02:** EITLab inverse setup, explicit noise generation, and `reconstruct_trial()`.
+This  function shows Single frame selection, voltage unmixing, inversion, image construction and correlation calculation.
+- **03:** saved-result summaries and `plot_reconstruction_images()`.
+This function calls EITLab's `plot_image()` and shows the panel arrangement, normalization, geometry outlines and shared colorbar.
 
 Helpers in `study/iwis_eit/` handle file loading/saving, metadata, inverse-operator caching, trial storage, pixel lookup and common figure formatting.
 
