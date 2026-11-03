@@ -1,0 +1,29 @@
+{
+  "png_dpi": 600,
+  "boxplot_y_limits": {
+    "0.4": [0.2, 0.8],
+    "0.6": [0.4, 0.9]
+  },
+  "fonts": {
+    "base": 8,
+    "titles": 8,
+    "labels": 8,
+    "ticks": 8,
+    "legend": 8,
+    "annotations": 8
+  },
+  "figure_sizes": {
+    "geometry": [6, 6],
+    "conductivity": [8.5, 10],
+    "voltages": [8.5, 6],
+    "boxplot": [17.78, 12.192],
+    "combined_boxplot": [18.5, 8]
+  },
+  "reconstruction": {
+    "layout": "vertical",
+    "compact": true,
+    "panel_gap_cm": 0.15,
+    "horizontal_size": [18.5, 13],
+    "vertical_size": [8.5, 12]
+  }
+}
