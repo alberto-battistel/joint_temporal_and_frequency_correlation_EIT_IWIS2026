@@ -10,7 +10,6 @@ from iwis_eit.figure_config import (
     load_figure_config,
     configure_figure,
     figure_size_inches,
-    circle_label,
 )
 from iwis_eit.publication import (
     table_rows,
@@ -82,36 +81,31 @@ def plot_reconstruction_images(data, m, deterministic, trial=0, *, config):
                 interpolation='nearest',
             )
             ax.add_patch(Circle((0, 0), 1, fill=False, color='gray', linewidth=0.7))
-            for center, radius in zip(
-                deterministic['inclusion_centers'], deterministic['inclusion_radii']
-            ):
-                ax.add_patch(
-                    Circle(center, radius, fill=False, color='black', linewidth=0.7, linestyle=':')
-                )
+            # Mark the true inclusion corresponding to this panel.
+            center = deterministic['inclusion_centers'][col]
+            radius = deterministic['inclusion_radii'][col]
+            ax.add_patch(
+                Circle(center, radius, fill=False, color='red', linewidth=0.9, linestyle='--')
+            )
             ax.set(xlim=(-1, 1), ylim=(-1, 1))
             if compact:
                 method = ['Single', 'Unmixed'][row]
-                name = circle_label(data['inclusion_names'][col])
                 if layout == 'vertical':
                     if col == 0:
                         ax.set_title(method)
-                    label = name
                 else:
-                    if row == 0:
-                        ax.set_title(name)
-                    label = method
-                ax.text(
-                    0.01,
-                    0.99,
-                    label,
-                    transform=ax.transAxes,
-                    ha='left',
-                    va='top',
-                    bbox=dict(facecolor='white', edgecolor='none', pad=0.3),
-                )
+                    ax.text(
+                        0.01,
+                        0.99,
+                        method,
+                        transform=ax.transAxes,
+                        ha='left',
+                        va='top',
+                        bbox=dict(facecolor='white', edgecolor='none', pad=0.3),
+                    )
             else:
                 title = selections[col] if row == 0 else components[col]
-                ax.set_title(f"{circle_label(data['inclusion_names'][col])}\n{title}")
+                ax.set_title(title)
             ax.set_aspect('equal')
             ax.set_facecolor('#eeeeee')
             ax.set_axis_off()
@@ -133,7 +127,7 @@ def plot_reconstruction_images(data, m, deterministic, trial=0, *, config):
     colorbar.solids.set_rasterized(False)
     if not compact:
         fig.suptitle(condition_title(m) + f'\nRepresentative trial {trial} (fixed before analysis)')
-        note = 'Each panel normalized independently; compare spatial patterns, not amplitudes. Dotted circles: true inclusions.\nSingle: signed conductivity change; Unmixed: frequency coefficient / harmonic norms. Endpoint sampling: 64 x 64.'
+        note = 'Each panel normalized independently; compare spatial patterns, not amplitudes. Red dashed circle: true inclusion for this panel.\nSingle: signed conductivity change; Unmixed: frequency coefficient / harmonic norms. Endpoint sampling: 64 x 64.'
         fig.supxlabel(
             note + '\nGeometry in metres under the SI/unit-depth interpretation.', fontsize=8
         )
