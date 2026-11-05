@@ -122,6 +122,6 @@ def export_figure(fig,stem,config):
     stem=Path(stem)
     configure_figure(fig,config)
     with plt.rc_context({'svg.fonttype':'none','svg.hashsalt':'IWIS2026'}):
-        fig.savefig(Path(str(stem)+'.svg'),metadata={'Date':None})
+        fig.savefig(Path(str(stem)+'.svg'),dpi=config['png_dpi'],metadata={'Date':None})
     fig.savefig(Path(str(stem)+'.png'),dpi=config['png_dpi'],metadata={'Software':'IWIS2026'})
     return [Path(str(stem)+'.svg'),Path(str(stem)+'.png')]

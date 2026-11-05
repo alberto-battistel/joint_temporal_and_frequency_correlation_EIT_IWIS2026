@@ -131,7 +131,8 @@ def plot_reconstruction_images(data, m, deterministic, trial=0, *, config):
         ),
         **colorbar_options,
     )
-    colorbar.solids.set_rasterized(False)
+    # Embed a single raster gradient to avoid seams between SVG colorbar segments.
+    colorbar.solids.set_rasterized(True)
     if not compact:
         fig.suptitle(condition_title(m) + f'\nRepresentative trial {trial} (fixed before analysis)')
         note = 'Each panel normalized independently; compare spatial patterns, not amplitudes. Red dashed circle: true inclusion for this panel.\nSingle: signed conductivity change; Unmixed: frequency coefficient / harmonic norms. Endpoint sampling: 64 x 64.'
