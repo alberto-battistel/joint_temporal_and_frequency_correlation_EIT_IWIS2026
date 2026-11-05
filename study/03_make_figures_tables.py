@@ -81,12 +81,19 @@ def plot_reconstruction_images(data, m, deterministic, trial=0, *, config):
                 interpolation='nearest',
             )
             ax.add_patch(Circle((0, 0), 1, fill=False, color='gray', linewidth=0.7))
-            # Mark the true inclusion corresponding to this panel.
-            center = deterministic['inclusion_centers'][col]
-            radius = deterministic['inclusion_radii'][col]
-            ax.add_patch(
-                Circle(center, radius, fill=False, color='red', linewidth=0.9, linestyle='--')
-            )
+            # Highlight this panel's target; retain the other true inclusions in black.
+            for circle_index, (center, radius) in enumerate(
+                zip(deterministic['inclusion_centers'], deterministic['inclusion_radii'])
+            ):
+                target = circle_index == col
+                ax.add_patch(
+                    Circle(
+                        center, radius, fill=False,
+                        color='red' if target else 'black',
+                        linewidth=0.9 if target else 0.7,
+                        linestyle='--' if target else ':',
+                    )
+                )
             ax.set(xlim=(-1, 1), ylim=(-1, 1))
             if compact:
                 method = ['Single', 'Unmixed'][row]
