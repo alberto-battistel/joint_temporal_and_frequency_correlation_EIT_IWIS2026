@@ -17,13 +17,13 @@
     "conductivity": [8.5, 10],
     "voltages": [8.5, 6],
     "boxplot": [17.78, 12.192],
-    "combined_boxplot": [18.5, 8]
+    "combined_boxplot": [18.5, 6]
   },
   "reconstruction": {
-    "layout": "vertical",
+    "layout": "horizontal",
     "compact": true,
     "panel_gap_cm": 0.15,
-    "horizontal_size": [18.5, 13],
+    "horizontal_size": [8.5, 6],
     "vertical_size": [8.5, 12]
   }
 }
