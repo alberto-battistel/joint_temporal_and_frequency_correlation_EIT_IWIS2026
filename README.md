@@ -1,6 +1,28 @@
 # Joint Temporal and Frequency Correlation for Multi-Frequency Electrical Impedance Tomography
 
-This repository reproduces the data presented at **19th International Workshop on Impedance Spectroscopy, September 22 - September 25, 2026** and published as **Joint Temporal and Frequency Correlation for Multi-Frequency Electrical Impedance Tomography**.
+This repository contains the scripts used to generate the simulations, reconstructions, figures, and tables for the study presented at the **19th International Workshop on Impedance Spectroscopy, September 22–25, 2026**, and described in the manuscript below.
+
+## Associated publication
+
+**Joint Temporal and Frequency Correlation for Multi-Frequency Electrical Impedance Tomography**
+
+- Authors: `<AUTHORS>`
+- Publication status: `<PUBLICATION_STATUS>`
+- Article DOI: pending
+
+## Software versions and citation
+
+The software versions used for the manuscript are:
+
+| Software | Release tag | Version-specific Zenodo DOI |
+|---|---|---|
+| This study repository | `<STUDY_TAG>` | `<STUDY_VERSION_DOI>` |
+| EITLab | `<EITLAB_TAG>` | `<EITLAB_VERSION_DOI>` |
+
+Release tags and Zenodo DOIs will be added when the corresponding releases are published.
+To reproduce the manuscript results, use these releases and follow the **Full experiment** instructions below. The default demo configuration is intended for a quick run.
+
+If you use this work, please cite the relevant software releases listed above. Use the version-specific DOIs to identify the exact archived software used.
 
 ## Installation
 
