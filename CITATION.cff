@@ -1,0 +1,21 @@
+# Research software citation template (CFF 1.2.0).
+# Replace all REPLACE_WITH_* placeholders before publishing.
+# Uncomment the release date and optional DOI after filling them in.
+
+cff-version: 1.2.0
+message: "If you use this software, please cite it using the metadata in this file."
+type: software
+title: "REPLACE_WITH_SOFTWARE_TITLE"
+authors:
+  - family-names: "REPLACE_WITH_AUTHOR_FAMILY_NAME"
+    given-names: "REPLACE_WITH_AUTHOR_GIVEN_NAMES"
+# Add more authors by repeating the two-line author entry above.
+version: "REPLACE_WITH_RELEASE_VERSION"
+repository-code: "https://github.com/REPLACE_WITH_OWNER/REPLACE_WITH_REPOSITORY"
+
+# Release date: replace YYYY-MM-DD with the actual date, then uncomment.
+# date-released: "YYYY-MM-DD"
+
+# Optional software DOI: replace the placeholder, then uncomment.
+# Use the bare DOI (without https://doi.org/), e.g. 10.5281/zenodo.1234567.
+# doi: "REPLACE_WITH_SOFTWARE_DOI"
