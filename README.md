@@ -28,7 +28,7 @@ If you use this work, please cite the relevant software releases listed above. U
 
 Use the EITLab release tagged **<EITLAB_TAG>**.
 
-Extract this package. From the `iwis2026` folder, run the following commands, replacing `<EITLAB_REPOSITORY_URL>` and `<EITLAB_TAG>` with the repository URL and release tag:
+Extract this package. From the `joint_temporal_and_frequency_correlation_EIT_IWIS2026` folder, run the following commands, replacing `<EITLAB_REPOSITORY_URL>` and `<EITLAB_TAG>` with the repository URL and release tag:
 
 ```bash
 conda create --name iwis2026 python=3.12 pip
@@ -37,10 +37,10 @@ git clone --branch "<EITLAB_TAG>" --depth 1 "<EITLAB_REPOSITORY_URL>" ../eitlab-
 python -m pip install -r requirements.txt
 ```
 
-The requirements file installs that EITLab checkout with its simulation and plotting dependencies. No separate pip installation command or study `pyproject.toml` is needed.
+The requirements file installs that EITLab checkout with its simulation and plotting dependencies.
 If you already have EITLab checked out at the specified tag, use its folder path in `requirements.txt` and skip cloning.
 
-In each new terminal, activate the environment and open the `iwis2026` folder before running the scripts.
+Activate the environment and open the `joint_temporal_and_frequency_correlation_EIT_IWIS2026` folder before running the scripts.
 
 ## Quick run
 
