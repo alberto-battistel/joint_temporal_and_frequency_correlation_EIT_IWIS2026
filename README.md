@@ -1,6 +1,6 @@
-# IWIS2026 EIT simulations
+# Joint Temporal and Frequency Correlation for Multi-Frequency Electrical Impedance Tomography
 
-This repository reproduces the data presented at **19th International Workshop on Impedance Spectroscopy, September 22 - September 25, 2026** and published in **Joint Temporal and Frequency Correlation for Multi-Frequency Electrical Impedance Tomography**.
+This repository reproduces the data presented at **19th International Workshop on Impedance Spectroscopy, September 22 - September 25, 2026** and published as **Joint Temporal and Frequency Correlation for Multi-Frequency Electrical Impedance Tomography**.
 
 ## Installation
 
