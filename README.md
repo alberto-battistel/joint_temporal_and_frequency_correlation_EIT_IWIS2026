@@ -1,5 +1,7 @@
 # Joint Temporal and Frequency Correlation for Multi-Frequency Electrical Impedance Tomography
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1448154975.svg)](https://doi.org/10.5281/zenodo.24091407)
+
 This repository contains the scripts used to generate the simulations, reconstructions, figures, and tables for the study presented at the **19th International Workshop on Impedance Spectroscopy, September 22–25, 2026**, and described in the manuscript below.
 
 ## Associated publication
@@ -16,7 +18,7 @@ The software versions used for the manuscript are:
 
 | Software | Release tag | Version-specific Zenodo DOI |
 |---|---|---|
-| This study repository | `<STUDY_TAG>` | `<STUDY_VERSION_DOI>` |
+| [joint_temporal_and_frequency_correlation_EIT_IWIS2026](https://github.com/alberto-battistel/joint_temporal_and_frequency_correlation_EIT_IWIS2026) | `v1.0.0` | [10.5281/zenodo.24091408](https://doi.org/10.5281/zenodo.24091407)  |
 | [EITLab](https://github.com/alberto-battistel/eitlab) | `v0.1.0` | [10.5281/zenodo.24084811](https://doi.org/10.5281/zenodo.24084811) |
 
 The EITLab DOI identifies **EITLab — Initial Research Release (v0.1.0)**.
