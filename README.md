@@ -6,7 +6,7 @@ This repository contains the scripts used to generate the simulations, reconstru
 
 **Joint Temporal and Frequency Correlation for Multi-Frequency Electrical Impedance Tomography**
 
-- Authors: `<AUTHORS>`
+- Authors: Alberto Battistel, Massimo Kubon, Thomas Schiepp, Martin Pichotka
 - Publication status: `<PUBLICATION_STATUS>`
 - Article DOI: pending
 
@@ -17,28 +17,31 @@ The software versions used for the manuscript are:
 | Software | Release tag | Version-specific Zenodo DOI |
 |---|---|---|
 | This study repository | `<STUDY_TAG>` | `<STUDY_VERSION_DOI>` |
-| EITLab | `<EITLAB_TAG>` | `<EITLAB_VERSION_DOI>` |
+| [EITLab](https://github.com/alberto-battistel/eitlab) | `v0.1.0` | [10.5281/zenodo.24084811](https://doi.org/10.5281/zenodo.24084811) |
 
-Release tags and Zenodo DOIs will be added when the corresponding releases are published.
-To reproduce the manuscript results, use these releases and follow the **Full experiment** instructions below. The default demo configuration is intended for a quick run.
+The EITLab DOI identifies **EITLab — Initial Research Release (v0.1.0)**. The study repository's release tag and version-specific Zenodo DOI will be added when its release is published.
 
-If you use this work, please cite the relevant software releases listed above. Use the version-specific DOIs to identify the exact archived software used.
+To reproduce the manuscript results, use the releases listed above and follow the **Full experiment** instructions below. 
+The default demo configuration is intended for a quick run.
+
+If you use this work, please cite the relevant software releases listed above. Use the version-specific DOIs to identify the exact archived software used. 
+Cite the associated publication once its bibliographic details are available.
 
 ## Installation
 
-Use the EITLab release tagged **<EITLAB_TAG>**.
+Use the EITLab release tagged **v0.1.0**.
 
-Extract this package. From the `joint_temporal_and_frequency_correlation_EIT_IWIS2026` folder, run the following commands, replacing `<EITLAB_REPOSITORY_URL>` and `<EITLAB_TAG>` with the repository URL and release tag:
+Extract this package. From the `joint_temporal_and_frequency_correlation_EIT_IWIS2026` folder, run:
 
 ```bash
 conda create --name iwis2026 python=3.12 pip
 conda activate iwis2026
-git clone --branch "<EITLAB_TAG>" --depth 1 "<EITLAB_REPOSITORY_URL>" ../eitlab-dev
+git clone --branch v0.1.0 --depth 1 https://github.com/alberto-battistel/eitlab.git ../eitlab-dev
 python -m pip install -r requirements.txt
 ```
 
 The requirements file installs that EITLab checkout with its simulation and plotting dependencies.
-If you already have EITLab checked out at the specified tag, use its folder path in `requirements.txt` and skip cloning.
+If you already have EITLab checked out at `v0.1.0`, use its folder path in `requirements.txt` and skip cloning.
 
 Activate the environment and open the `joint_temporal_and_frequency_correlation_EIT_IWIS2026` folder before running the scripts.
 
@@ -62,12 +65,11 @@ The scientific sequence is visible in these three scripts:
 
 - **01:** geometry and meshing, EITLab forward models and Jacobian, conductivity laws, the six-row unmixing basis, Tikhonov inversion, parameter-to-image conversion, and geometry/conductivity/voltage plotting.
 - **02:** EITLab inverse setup, explicit noise generation, and `reconstruct_trial()`.
-This  function shows Single frame selection, voltage unmixing, inversion, image construction and correlation calculation.
+  This function shows Single frame selection, voltage unmixing, inversion, image construction and correlation calculation.
 - **03:** saved-result summaries and `plot_reconstruction_images()`.
-This function calls EITLab's `plot_image()` and shows the panel arrangement, normalization, geometry outlines and shared colorbar.
+  This function calls EITLab's `plot_image()` and shows the panel arrangement, normalization, geometry outlines and shared colorbar.
 
 Helpers in `study/iwis_eit/` handle file loading/saving, metadata, inverse-operator caching, trial storage, pixel lookup and common figure formatting.
-
 
 ## Full experiment
 
@@ -121,7 +123,6 @@ Script 01 still saves simulation data;
 script 03 still saves summary tables and export metadata.
 Disabling plot saving leaves existing plot files untouched.
 Repeating a configuration with saving enabled overwrites its corresponding outputs.
-
 
 ## Figure configuration
 
