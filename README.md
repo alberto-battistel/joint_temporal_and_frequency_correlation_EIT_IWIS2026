@@ -24,26 +24,70 @@ The EITLab DOI identifies **EITLab — Initial Research Release (v0.1.0)**. The 
 To reproduce the manuscript results, use the releases listed above and follow the **Full experiment** instructions below. 
 The default demo configuration is intended for a quick run.
 
-If you use this work, please cite the relevant software releases listed above. Use the version-specific DOIs to identify the exact archived software used. 
+If you use this work, please cite the relevant software releases listed above. 
+Use the version-specific DOIs to identify the exact archived software used. 
 Cite the associated publication once its bibliographic details are available.
 
 ## Installation
 
-Use the EITLab release tagged **v0.1.0**.
+Install [Git](https://git-scm.com/downloads) and a conda distribution, such as [Miniconda](https://docs.conda.io/en/latest/miniconda.html), before starting. 
+On Windows, use Anaconda Prompt or another terminal in which both `git` and `conda` are available.
 
-Extract this package. From the `joint_temporal_and_frequency_correlation_EIT_IWIS2026` folder, run:
+### 1. Copy the study repository URL
+
+Open this study repository on GitHub, select **Code → HTTPS**, and copy the clone URL. 
+Replace `<STUDY_REPOSITORY_URL>` in the command below with that URL, including the `.git` suffix. 
+Do not type the angle brackets.
+
+### 2. Download both repositories
+
+Open a terminal in the directory where you want to keep the project. 
+Run:
+
+```bash
+mkdir IWIS2026
+cd IWIS2026
+
+# Download the study scripts into the explicitly named study folder.
+git clone "<STUDY_REPOSITORY_URL>" joint_temporal_and_frequency_correlation_EIT_IWIS2026
+
+# Download the exact EITLab release into the sibling eitlab-dev folder.
+git clone --branch v0.1.0 --depth 1 https://github.com/alberto-battistel/eitlab.git eitlab
+
+# Enter the study repository.
+cd joint_temporal_and_frequency_correlation_EIT_IWIS2026
+```
+
+The `IWIS2026` directory now contains two sibling folders:
+
+- `joint_temporal_and_frequency_correlation_EIT_IWIS2026/`: the study scripts, `requirements.txt`, and figure configuration.
+- `eitlab/`: EITLab v0.1.0.
+
+The folder name `eitlab` is required by the relative path in `requirements.txt`.
+Git's detached HEAD notice when cloning the EITLab tag is expected.
+
+The study clone command downloads its current default branch. 
+Once the study release listed above is published, use `git clone --branch "<STUDY_TAG>" --depth 1 "<STUDY_REPOSITORY_URL>" joint_temporal_and_frequency_correlation_EIT_IWIS2026` instead, replacing both placeholders, to reproduce that exact study release.
+
+If you already downloaded or extracted the study repository, skip its clone command and place its folder beside `eitlab`. If you already cloned EITLab into a folder not named `eitlab`, either rename or move that folder to the sibling `eitlab` location, or update the EITLab path in `requirements.txt`.
+
+### 3. Create the environment and install dependencies
+
+From inside `joint_temporal_and_frequency_correlation_EIT_IWIS2026`, run:
 
 ```bash
 conda create --name iwis2026 python=3.12 pip
 conda activate iwis2026
-git clone --branch v0.1.0 --depth 1 https://github.com/alberto-battistel/eitlab.git ../eitlab-dev
 python -m pip install -r requirements.txt
 ```
 
-The requirements file installs that EITLab checkout with its simulation and plotting dependencies.
-If you already have EITLab checked out at `v0.1.0`, use its folder path in `requirements.txt` and skip cloning.
+The requirements file installs the sibling EITLab checkout with its simulation and plotting dependencies.
 
-Activate the environment and open the `joint_temporal_and_frequency_correlation_EIT_IWIS2026` folder before running the scripts.
+### 4. Run the study
+
+Keep the terminal in `joint_temporal_and_frequency_correlation_EIT_IWIS2026` and follow the **Quick run** or **Full experiment** instructions below.
+
+In a new terminal, navigate to that study folder and run `conda activate iwis2026` before running the scripts.
 
 ## Quick run
 
