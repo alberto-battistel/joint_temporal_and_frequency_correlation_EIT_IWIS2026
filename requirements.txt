@@ -1,1 +1,1 @@
-../eitlab-dev[fem,plot]
+../eitlab[fem,plot]

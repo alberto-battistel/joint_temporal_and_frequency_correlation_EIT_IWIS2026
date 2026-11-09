@@ -19,7 +19,8 @@ The software versions used for the manuscript are:
 | This study repository | `<STUDY_TAG>` | `<STUDY_VERSION_DOI>` |
 | [EITLab](https://github.com/alberto-battistel/eitlab) | `v0.1.0` | [10.5281/zenodo.24084811](https://doi.org/10.5281/zenodo.24084811) |
 
-The EITLab DOI identifies **EITLab — Initial Research Release (v0.1.0)**. The study repository's release tag and version-specific Zenodo DOI will be added when its release is published.
+The EITLab DOI identifies **EITLab — Initial Research Release (v0.1.0)**.
+The study repository's release tag and version-specific Zenodo DOI will be added when its release is published.
 
 To reproduce the manuscript results, use the releases listed above and follow the **Full experiment** instructions below. 
 The default demo configuration is intended for a quick run.
